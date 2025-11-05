@@ -2,9 +2,9 @@
 
 A full-stack application designed to help parents track their child's immunization schedule from birth through adolescence. Enter your child's age and receive comprehensive vaccine recommendations based on CDC pediatric guidelines.
 
-**Link to project:** https://github.com/JustinJoshi/vaccines-api-birth
+**Link to project:** 
 
-![Vaccines API Birth](https://vaccines-api-birth-1.onrender.com/)
+[Tiny Shots](https://vaccines-api-birth-1.onrender.com/)
 
 ## How It's Made:
 
