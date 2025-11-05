@@ -1,4 +1,4 @@
-# Vaccines API - Pediatric Edition
+# Tiny Shots Pediatric Vaccines API
 
 A full-stack application designed to help parents track their child's immunization schedule from birth through adolescence. Enter your child's age and receive comprehensive vaccine recommendations based on CDC pediatric guidelines.
 
