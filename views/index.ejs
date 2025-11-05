@@ -1,0 +1,720 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Pediatric Vaccine Tracker - Welcome</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <!-- style by claude -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Elements */
+        .bg-decoration {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .circle1 {
+            width: 400px;
+            height: 400px;
+            background: #0ea5e9;
+            top: -100px;
+            right: -100px;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .circle2 {
+            width: 300px;
+            height: 300px;
+            background: #22c55e;
+            bottom: -50px;
+            left: -50px;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        .circle3 {
+            width: 200px;
+            height: 200px;
+            background: #3b82f6;
+            top: 50%;
+            left: 10%;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            33% {
+                transform: translateY(-30px) translateX(20px);
+            }
+
+            66% {
+                transform: translateY(20px) translateX(-20px);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-nav {
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-login {
+            color: #0284c7;
+            border: 2px solid #0284c7;
+            background: transparent;
+        }
+
+        .btn-login:hover {
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-signup {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 30px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0284c7;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .badge i {
+            color: #22c55e;
+            font-size: 16px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn-cta {
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0284c7;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #0284c7;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #0284c7;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0.7s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.85s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        .feature-icon.blue {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #0284c7;
+        }
+
+        .feature-icon.green {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #16a34a;
+        }
+
+        .feature-icon.purple {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            color: #9333ea;
+        }
+
+        .feature-card h3 {
+            color: #1e293b;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Info Sections */
+        .info-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-section h2 {
+            color: #1e293b;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-section h2 i {
+            color: #0ea5e9;
+        }
+
+        .info-section p {
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: #0ea5e9;
+            margin-top: 3px;
+        }
+
+        .info-item div h4 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .info-item div p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Disclaimer Box */
+        .disclaimer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .disclaimer h3 {
+            color: #92400e;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .disclaimer h3 i {
+            color: #f59e0b;
+        }
+
+        .disclaimer p {
+            color: #78350f;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        footer a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .hero {
+                padding: 40px 20px 40px;
+            }
+
+            .info-section {
+                padding: 30px 25px;
+            }
+
+            .info-section h2 {
+                font-size: 24px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-cta {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Decoration -->
+    <div class="bg-decoration circle1"></div>
+    <div class="bg-decoration circle2"></div>
+    <div class="bg-decoration circle3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <span class="logo-text">Pediatric Vaccine Tracker</span>
+            </a>
+            <div class="nav-buttons">
+                <a href="/login" class="btn-nav btn-login">
+                    <i class="fa fa-sign-in"></i>
+                    <span>Login</span>
+                </a>
+                <a href="/signup" class="btn-nav btn-signup">
+                    <i class="fa fa-user-plus"></i>
+                    <span>Sign Up</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fa fa-check-circle"></i>
+                <span>CDC Guidelines Compliant</span>
+            </div>
+            <h1>Protect Your Child's <span class="highlight">Future Health</span></h1>
+            <p class="hero-subtitle">
+                Keep track of your child's immunization schedule with confidence. Our platform provides personalized
+                vaccine recommendations based on official CDC guidelines, helping you stay on top of your child's
+                healthcare needs.
+            </p>
+            <div class="cta-buttons">
+                <a href="/signup" class="btn-cta btn-primary">
+                    <i class="fa fa-rocket"></i>
+                    <span>Get Started Free</span>
+                </a>
+                <a href="#learn-more" class="btn-cta btn-secondary">
+                    <i class="fa fa-info-circle"></i>
+                    <span>Learn More</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon blue">
+                    <i class="fa fa-calendar-check-o"></i>
+                </div>
+                <h3>Age-Based Tracking</h3>
+                <p>Get personalized vaccine schedules tailored to your child's age, from birth through 18+ years. Never
+                    miss an important immunization.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon green">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <h3>CDC Approved</h3>
+                <p>All recommendations follow the latest guidelines from the Centers for Disease Control and Prevention
+                    (CDC) and ACIP.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon purple">
+                    <i class="fa fa-heartbeat"></i>
+                </div>
+                <h3>Health Protection</h3>
+                <p>Vaccines protect against 16+ potentially harmful diseases. Stay informed about what your child needs
+                    and when.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="hero" id="learn-more">
+        <div class="info-section">
+            <h2><i class="fa fa-question-circle"></i> Why Vaccination Matters</h2>
+            <p>
+                Vaccination is one of the most important ways to protect your child from serious diseases. Vaccines work
+                with your child's natural defenses to safely develop immunity, providing protection when they need it
+                most.
+            </p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fa fa-clock-o"></i>
+                    <div>
+                        <h4>Timely Protection</h4>
+                        <p>Vaccines are most effective when given at specific ages during your child's development.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-users"></i>
+                    <div>
+                        <h4>Community Health</h4>
+                        <p>Protecting your child also helps protect those who cannot be vaccinated.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-line-chart"></i>
+                    <div>
+                        <h4>Proven Effective</h4>
+                        <p>Vaccines have prevented millions of illnesses and saved countless lives worldwide.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-stethoscope"></i>
+                    <div>
+                        <h4>Medically Sound</h4>
+                        <p>Vaccines undergo rigorous testing and continuous safety monitoring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <h3><i class="fa fa-exclamation-triangle"></i> Important Medical Disclaimer</h3>
+            <p>
+                This tracking tool is designed to help parents stay organized with their child's immunization schedule.
+                However, it is not a substitute for professional medical advice. <strong>Always consult with your
+                    pediatrician or healthcare provider before making vaccination decisions.</strong> Your healthcare
+                provider can address your specific concerns and provide personalized recommendations based on your
+                child's unique health needs and medical history.
+            </p>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="info-section">
+            <h2><i class="fa fa-cogs"></i> How It Works</h2>
+            <p>
+                Getting started is simple. Create your free account, enter your child's age, and receive instant access
+                to personalized vaccine recommendations.
+            </p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fa fa-user-plus"></i>
+                    <div>
+                        <h4>1. Create Account</h4>
+                        <p>Sign up for free in less than a minute. No credit card required.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-search"></i>
+                    <div>
+                        <h4>2. Enter Child's Age</h4>
+                        <p>Simply input your child's age in months to get started.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-list-alt"></i>
+                    <div>
+                        <h4>3. View Recommendations</h4>
+                        <p>Get a detailed list of recommended vaccines with descriptions.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-check-square-o"></i>
+                    <div>
+                        <h4>4. Stay on Track</h4>
+                        <p>Keep your family's health organized and up-to-date.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2024 Pediatric Vaccine Tracker. All vaccine recommendations are based on
+            <a href="https://www.cdc.gov/vaccines/by-age/index.html" target="_blank">CDC Guidelines</a>.
+            This is an informational tool and not medical advice.
+        </p>
+    </footer>
+</body>
+
+</html>
