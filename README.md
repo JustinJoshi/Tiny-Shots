@@ -6,6 +6,13 @@ A full-stack application designed to help parents track their child's immunizati
 
 [Tiny Shots](https://vaccines-api-birth-1.onrender.com/)
 
+<img width="2534" height="1315" alt="2025-11-06_13-46" src="https://github.com/user-attachments/assets/b2437b2b-e7fe-451e-a20b-6f190de49c7b" />
+
+<img width="2534" height="1315" alt="2025-11-06_13-46_1" src="https://github.com/user-attachments/assets/035aeeea-0432-4327-910b-e8382467de8e" />
+<img width="2534" height="1315" alt="2025-11-06_13-47" src="https://github.com/user-attachments/assets/692bba78-9227-4b27-91da-29c1cf3947a1" />
+<img width="2534" height="1315" alt="2025-11-06_13-47_1" src="https://github.com/user-attachments/assets/60b95dad-1e1d-49be-b704-41842ad7fe08" />
+<img width="2534" height="1315" alt="2025-11-06_13-47_2" src="https://github.com/user-attachments/assets/480ffb2e-fec5-49f3-851f-ed701ee020c8" />
+
 ## How It's Made:
 
 **Tech used:** Node.js, Express, MongoDB, EJS, JavaScript
